@@ -1,0 +1,23 @@
+﻿<Window x:Class="VendingMachine.Views.ProductionView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:viewModels="clr-namespace:VendingMachine.ViewModels;assembly=VendingMachine.ViewModels"
+        WindowState="Normal" WindowStyle="None"
+        mc:Ignorable="d"
+        Title="ProductionView" Height="450" Width="300">
+    
+    <Window.DataContext>
+        <viewModels:ProductionViewModel/>
+    </Window.DataContext>
+    
+    <DockPanel>
+        <StackPanel DockPanel.Dock="Bottom">
+            <Button Content="Done" VerticalAlignment="Center" Margin="15"
+                    IsEnabled="{Binding Path=IsDone}"
+                    Command="{Binding Path=DoneCommand}"/>
+        </StackPanel>
+        <ListBox ItemsSource="{Binding Path=ActionList}"/>
+    </DockPanel>
+</Window>
